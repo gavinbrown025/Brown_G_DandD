@@ -1,5 +1,5 @@
 @charset "utf-8";
-/* CSS Document */ 
+/* CSS Document */
 body {
 	background-image: url(../images/puzzle2.jpg);
 	background-repeat: repeat;
@@ -10,7 +10,7 @@ body {
 }
 
 .hidden { display: none }
-
+ 
 #game-boards { width: 100%; text-align: center; }
 
 .puzzle-pieces, .puzzle-board {
@@ -59,10 +59,10 @@ header h1 {
 	margin: 10px 0
 }
 
-header p, footer p { 
-	font-size: 1.7em; 
-	letter-spacing: 2px; 
-	margin: 10px 0 
+header p, footer p {
+	font-size: 1.7em;
+	letter-spacing: 2px;
+	margin: 10px 0
 }
 
 footer {
