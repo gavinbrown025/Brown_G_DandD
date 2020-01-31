@@ -39,7 +39,13 @@ body {
 
 
 /* set up drop zones */
-
+.drop-zone {
+	width: 49.5%;
+	height: 49.5%;
+	border: thin dashed white;
+	float: right;
+	position: relative;
+}
 
 
 /* end board styles */
