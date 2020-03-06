@@ -4,7 +4,9 @@
 	const navButtons = document.querySelectorAll('#buttonHolder img'),
 		puzzlePiece = document.querySelectorAll('.puzzle-pieces img'),
 		puzzleBoard = document.querySelector('.puzzle-board'),
-		dropZones = document.querySelectorAll('.drop-zone');
+		dropZones = document.querySelectorAll('.drop-zone'),
+
+		pieceHolder = document.querySelector('.puzzle-pieces');
 
 	const pieces = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
 
@@ -12,6 +14,7 @@
 	function changeImageSet() {
 		// change the thumbnail images on the left to match the button images
 		pieces.forEach((piece, index) => {
+			pieceHolder.appendChild(puzzlePiece[index]);
 			puzzlePiece[index].src=`images/${piece + this.dataset.puzzleindex}.jpg`;
 			puzzlePiece[index].id=`${piece + this.dataset.puzzleindex}`;
 		});
@@ -39,12 +42,23 @@
 	}
 
 	function allowDrop(event) {
-		console.log('you dropped me');
+		
 
+		// trying to make it return if it has contents
+		
+		//if (!dropZones.hasChildNodes()) {return}
+		//if (dropZones.childNodes = 1){ return false;}
+		if (!this.hasChildNodes()) {
+
+		
+
+		console.log('you dropped me');
 		let currentPiece = event.dataTransfer.getData("text/plain");
 
 		event.target.appendChild(document.querySelector(`#${currentPiece}`));
 	}
+}
+	//function noDrop(event) {if (!this.hasChildNodes()){return};}
 
 
 	// add some event handling for the nav navButtons
@@ -54,10 +68,17 @@
 
 	dropZones.forEach(zone => zone.addEventListener('dragover', allowDragOver));
 
-	dropZones.forEach(zone => zone.addEventListener('drop', allowDrop));
+	dropZones.forEach(zone => zone.addEventListener('drop', allowDrop));//
+
+	
+	pieceHolder.addEventListener('dragover', allowDragOver);
+	pieceHolder.addEventListener('drop', allowDrop);
+
 
 	// call, apply, and bind are different ways to invoke a function
 	// you should know what call does - research in mdn
 	changeImageSet.call(navButtons[0]);
 
 })();
+
+//pieceHolder.appendChild(document.querySelectorAll(.'puzzle-image'));
